@@ -4,6 +4,13 @@ import os
 from setuptools import setup
 from setuptools.command.install import install
 
+from pathlib import Path
+from setuptools import setup, find_packages 
+
+current_dir = Path(__file__).parent.resolve()
+
+with open(current_dir / "README.md", encoding="utf-8") as f:
+    long_description = f.read()
 
 class Installer(install):
     def initialize_options(self):
@@ -26,11 +33,14 @@ class Installer(install):
 
 setup(
     name="walrus37",
-    version="1.0.0",
+    version="1.0.1",
     description="Walrus operator on python3.7",
     author = "btaskaya",
     author_email = "batuhanosmantaskaya@gmail.com",
     url = "https://github.com/isidentical/walrus37",
     py_modules=["walrus37"],
     cmdclass={"install": Installer},
+    long_description = long_description,
+    long_description_content_type = "text/markdown",
+
 )
