@@ -1,0 +1,7 @@
+try:
+    import walrus37
+    import codecs
+except ImportError:
+    print('Walrus37 is not properly configured!')
+else:
+    codecs.register(walrus37.search)
